@@ -4,9 +4,9 @@
 
 - number
 
-* Infinity
-* -Infinity
-* NaN
+        * Infinity
+        * -Infinity
+        * NaN
 
 - bigInt
 - string
