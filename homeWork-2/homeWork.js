@@ -43,7 +43,7 @@ export const dateToString = date => {
     } else {
         //год:месяц:день
         return date.slice(0, 10).replaceAll('-', ':');
-        //return `${dateItem.getFullYear()}:${dateItem.getMonth()}:${dateItem.getDate()}`;
+        //return `${dateItem.getFullYear()}:${dateItem.getMonth()+1}:${dateItem.getDate()}`;
     }
 
 
