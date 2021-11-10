@@ -7,12 +7,12 @@ P.S. Ноль 0 – считается числом, не останавлива
 const sumInput = () => {
     const arr = [];
     let input;
-    do{
-      input = prompt('введите число');
-      if (isNaN(Number(input))||input.trim()=='')
-          input=null;
-      else
-          arr.push(Number(input));
+    do {
+        input = prompt('введите число');
+        if (isNaN(Number(input)) || input.trim() == '')
+            input = null;
+        else
+            arr.push(Number(input));
     } while (input);
     console.log(arr);
 };
