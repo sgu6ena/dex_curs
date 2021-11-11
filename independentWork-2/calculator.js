@@ -23,3 +23,39 @@ alert( result ); // 8
 Для этой задачи не нужны скобки или сложные выражения.
 Числа и оператор разделены ровно одним пробелом.
 Не лишним будет добавить обработку ошибок.  */
+
+function Calculator() {
+    this.calculate = (str) => {
+        this.arg = str.trim().split(' ');
+        if (this.arg.length == 3) {
+            console.log(this.arg);
+            if (!isNaN(+this.arg[0]) && !isNaN(+this.arg[2])) {
+                return this[this.arg[1]](+this.arg[0], +this.arg[2]);
+            } else {
+                console.warn(`Неверные аргументы: ${str} ` )
+            }
+
+        } else {
+            console.warn('Неправильное количество аргументов')
+            return null;
+        }
+    }
+    this.addMethod = (operand, callback) => {
+        this[operand] = callback;
+        return this[operand]();
+    }
+}
+
+let calc = new Calculator;
+calc.addMethod("-", (a, b) => a - b);
+calc.addMethod("+", (a, b) => a + b);
+
+console.log(calc.calculate("3 - 7 ")); // 10
+
+let powerCalc = new Calculator;
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+
+let result = powerCalc.calculate("2 ** 3");
+console.log(result); // 8
