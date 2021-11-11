@@ -23,3 +23,21 @@ menu = {
 Обратите внимание, что multiplyNumeric не нужно ничего возвращать. Следует напрямую изменять объект.
 
 P.S. Используйте typeof для проверки, что значение свойства числовое. */
+const multiplyNumeric = obj => {
+    for (let key in obj){
+        !isNaN(obj[key]) ? obj[key]=obj[key]*2 :'';
+    }
+}
+
+let menu = {
+    width: 200,
+    height: 300,
+    title: "My menu"
+};
+
+console.dir(menu);
+
+multiplyNumeric(menu);
+
+
+console.dir(menu);

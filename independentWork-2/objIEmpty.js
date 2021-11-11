@@ -11,3 +11,13 @@ alert( isEmpty(schedule) ); // true
 schedule["8:30"] = "get up";
 
 alert( isEmpty(schedule) ); // false */
+
+const isEmpty = obj => Object.keys(obj).length > 0 ? false : true;
+
+let schedule = {};
+
+console.log(schedule, isEmpty(schedule)); // true
+
+schedule["8:30"] = "get up";
+
+console.log(schedule, isEmpty(schedule)); // false */
