@@ -18,5 +18,5 @@ let salaries = {
     Pete: 130
 }
 
-let sum = Object.keys(salaries).reduce((total, item)=>total+=salaries[item],0);
+let sum = Object.keys(salaries).reduce((total, item) => total += salaries[item], 0);
 console.log(sum);

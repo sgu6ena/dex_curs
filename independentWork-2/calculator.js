@@ -32,7 +32,7 @@ function Calculator() {
             if (!isNaN(+this.arg[0]) && !isNaN(+this.arg[2])) {
                 return this[this.arg[1]](+this.arg[0], +this.arg[2]);
             } else {
-                console.warn(`Неверные аргументы: ${str} ` )
+                console.warn(`Неверные аргументы: ${str} `)
             }
 
         } else {

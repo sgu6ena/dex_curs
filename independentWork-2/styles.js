@@ -6,12 +6,12 @@ console.log(` Давайте произведём 5 операций с масс
 Вставьте «Рэп» и «Регги» в начало массива. \n`);
 
 const styles = ['Джаз', 'Блюз'];
-console.log(`1.`,styles);
+console.log(`1.`, styles);
 styles.push('Рок-н-ролл');
-console.log(`2.`,styles);
-styles.splice(styles.length/2, 1, 'Классика' );
-console.log(`3.`,styles);
+console.log(`2.`, styles);
+styles.splice(styles.length / 2, 1, 'Классика');
+console.log(`3.`, styles);
 const del = styles.shift(0);
-console.log(`4.`,del,styles);
-styles.unshift('Рэп','Регги')
-console.log(`5.`,styles);
+console.log(`4.`, del, styles);
+styles.unshift('Рэп', 'Регги')
+console.log(`5.`, styles);

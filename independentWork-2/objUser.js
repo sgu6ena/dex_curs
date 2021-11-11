@@ -7,11 +7,11 @@
 Удалите свойство name из объекта. */
 
 let user = new Object();
-user['name']='John';
+user['name'] = 'John';
 console.dir(user);
-user['surname']='Smith';
+user['surname'] = 'Smith';
 console.dir(user);
-user['name']='Pete';
+user['name'] = 'Pete';
 console.dir(user);
 delete user['name'];
 console.dir(user);
