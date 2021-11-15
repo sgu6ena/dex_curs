@@ -12,11 +12,9 @@ ask(
   function() { alert("Вы отменили выполнение."); }
 ); */
 
- ask = (question, yes, no) => {
-    confirm(question) ? yes()  : no();
-}
+ask = (question, yes, no) => confirm(question) ? yes() : no();
+
 
 ask(
-    "Вы согласны?", ()=>alert("Вы согласились."),()=>alert("Вы отменили выполнение.")
-
+    "Вы согласны?", () => alert("Вы согласились."), () => alert("Вы отменили выполнение.")
 );

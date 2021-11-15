@@ -21,3 +21,11 @@ let user = { name: "John", years: 30 };
 alert( name ); // John
 alert( age ); // 30
 alert( isAdmin ); // false */
+
+let user = {name: "John", years: 30,};
+
+let {name, years: age, isAdmin = false} = user
+
+console.log(name); // John
+console.log(age); // 30
+console.log(isAdmin); // false

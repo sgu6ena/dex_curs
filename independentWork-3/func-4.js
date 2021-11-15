@@ -17,7 +17,10 @@ pow = (x, n) => {
     return result
 }
 
-//pow = (x, n) => Math.pow(x, n)
+
 console.log(pow(3, 2),
 pow(3, 3) ,
 pow(1, 100) ,)
+
+//или такой вариант))
+//pow = (x, n) => Math.pow(x, n)

@@ -29,3 +29,21 @@ function mul() { // перемножает аргументы: mul(2,3,4) = 24
 alert( applyAll(sum, 1, 2, 3) ); // -> sum(1, 2, 3) = 6
 alert( applyAll(mul, 2, 3, 4) ); // -> mul(2, 3, 4) = 24
  */
+const applyAll = (fn, ...args) => {
+    return fn.apply(this, args)
+}
+const sum = (...args) => {
+    return args.reduce((a, b) => a + b, 0)
+}
+const max = (...args) => {
+    return Math.max(...args);
+}
+
+const multi = (...args) => {
+    return args.reduce((a, b) => a * b, 1)
+}
+
+console.log(applyAll(sum, 2, 3, 4, 5, 6, 7));
+console.log(applyAll(max, 9, 3, 4, 5, 6, 7));
+console.log(applyAll(sum, 2, 3, 2))
+console.log(applyAll(multi, 2, 3, 2))

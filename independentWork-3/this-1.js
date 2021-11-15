@@ -17,3 +17,10 @@ alert( sumArgs(1, 2, 3) ); // 6, аргументы переданы через 
 Для решения примените метод reduce к arguments, используя call, apply или одалживание метода.
 
     P.S. Функция sum вам не понадобится, она приведена в качестве примера использования reduce для похожей задачи. */
+
+console.log(sumArgs.call([1, 2, 3])); // 6 (=1+2+3)
+
+function sumArgs() {
+    console.log(this);
+    return this.reduce((total, item) => total += item, 0)
+}
