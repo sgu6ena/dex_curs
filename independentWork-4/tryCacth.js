@@ -27,3 +27,17 @@ try {
 Есть ли здесь преимущество в использовании finally или оба фрагмента кода одинаковы? Если такое преимущество есть, то дайте пример, когда оно проявляется.
 
 */
+
+const work = (...args) => {
+    try {
+        let result = [...args].reduce((a, b) => a * b, 1);
+        if (result > 1000) throw new Error("Ошибка!");
+        else return result;
+    } catch (e) {
+        console.error(e);
+    } finally {
+        console.log('конец');
+    }
+}
+console.log(work(8, 5, 8, 7, 6, 8, 7, 2))
+console.log(work(2, 2, 3))
