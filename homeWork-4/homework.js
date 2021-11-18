@@ -22,5 +22,18 @@ export const logger = (name, fn) => {
 // Каррирование – это трансформация функций таким образом, чтобы они принимали аргументы не как f(a, b, c), а как f(a)(b)(c)
 // Должна работать для любого кол-ва аргументов
 export const curry = (fn) => {
-
+    return function (...args) {
+        if  (args.length>1){
+            return curry(...args.slice(1));
+        }
+        else
+            return fn.bind(this, args);
+    }
 };
+
+// const funcСurryingArgs = (...rest)=> {
+//     if (rest.length >= count)
+//         return rest.reduce((total, current) => total + current, 0);
+//     else
+//         return (...rest2) => funcСurryingArgs(...rest.concat(rest2));
+// }
