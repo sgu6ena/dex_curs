@@ -11,5 +11,17 @@
         // ...что здесь написать?
         // чтобы вызвать wait() и дождаться результата "10" от async–функции
         // не забывайте, здесь нельзя использовать "await"
-    }
+    }*-
 P.S. Технически задача очень простая, но этот вопрос часто задают разработчики, недавно познакомившиеся с async/await.*/
+
+async function wait() {
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    return 10;
+}
+
+function f() {
+    console.log('начинаем')
+    wait().then(data=>console.log('пришел результат:', data));
+}
+
+f()
