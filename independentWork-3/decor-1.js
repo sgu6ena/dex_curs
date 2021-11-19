@@ -22,14 +22,14 @@ P.S.: Этот декоратор иногда полезен для юнит-т
 
 let worker = {
     slow(...args) {
-        console.log(`Called with ${args}`);
-        return args;
+        console.log(`Called with [${args}]`);
+        return args.reduce((a, b) => a + b, 0);
     }
 };
 
 function cachingDecorator(func, hash) {
     let cache = new Map();
-    return function() {
+    return function () {
         let key = hash(arguments); // (*)
         if (cache.has(key)) {
             return cache.get(key);
@@ -48,7 +48,9 @@ function hash(args) {
 
 worker.slow = cachingDecorator(worker.slow, hash);
 
-console.log( worker.slow(3, 5) ); // работает
-console.log( "Again " + worker.slow(3, 5) ); // аналогично (из кеша)
-console.log( worker.slow(3, 5, 7) ); // работает
-console.log( "Again " + worker.slow(3, 5, 7) ); // аналогично (из кеша)
+console.log(worker.slow(3, 5)); // работает
+console.log("Again " + worker.slow(3, 5)); // аналогично (из кеша)
+console.log(worker.slow(3, 5, 7)); // работает
+console.log("Again " + worker.slow(3, 5, 7)); // аналогично (из кеша)
+console.log(worker.slow(3, 5, 7, 12, 27, 25, 63)); // работает
+console.log("Again " + worker.slow(3, 5, 7, 12, 27, 25, 63)); // аналогично (из кеша)
