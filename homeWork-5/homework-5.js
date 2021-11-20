@@ -1,4 +1,4 @@
-import { compareText } from "./data";
+import {compareText} from "./data";
 
 // Написать 2 функции,
 // первая обработает ответ от compareText
@@ -24,7 +24,7 @@ const processingData = async (str) => {
         const response = await getData(str);
         console.log(`Success:`, response);
     } catch (e) {
-        console.warn(`Error:`, e);
+        console.warn(`Error:`, e.message);
     }
 };
 processingData("короткий текст");
@@ -42,8 +42,19 @@ processingData("длинный тексттттттттттт");
 // второй для подсчёта количества символов и
 //добавления недостающих
 const getResponse = (str) => {
-    // const response = await getData(str);
-    // return response().then(console.log  );
+    const response = getData(str);
+    const result = response
+        .then((data) => data + " :)")
+        .then((data) => {
+            while (data.length < 20) data = data + ")";
+            return data;
+        })
+        .catch((e) => e.message + " :(")
+        .then((data) => {
+            while (data.length < 20) data = data + "(";
+            return data;
+        });
+    result.then(console.log);
 };
 
 getResponse("короткий текст");
@@ -56,7 +67,7 @@ const getDataFromAPI = async (url) => {
     try {
         const response = await fetch(url);
         if (response.status < 200 || response.status > 299)
-            throw  Error(`${url} - ${response.status}`);
+            throw Error(`${url} - ${response.status}`);
         const data = await response.json();
         console.log(
             `getDataFromAPI - ответ: ${data.results.map(
