@@ -37,8 +37,16 @@ export class Drive {
 // быть не чаще чем 1раз в 0,5сек).
 
 export class Charger {
-    chargeVehicle(vehicle) {
-        throw new Error("not implemented");
+    static lastCharge ={};
+    chargeVehicle  (vehicle)  {
+        let dateNow = + new Date();
+        if (dateNow - Charger.lastCharge[vehicle.id]  > 500 || !Charger.lastCharge[vehicle.id])
+        {
+            Charger.lastCharge[vehicle.id] = dateNow;
+            if (vehicle instanceof ElectricCar && vehicle.battery <100)
+                vehicle.charge();
+        }
+        else throw new Error("not implemented");
     }
 }
 
@@ -46,8 +54,12 @@ export class Charger {
 // чтоб пробег всех автомобилей можно было получить без параметров.
 // Реализуйте функцию получения суммарного пробега всех автомобилей
 export class Car extends Vehicle {
+
     trip(mileage) {
-        throw new Error("not implemented");
+        //   console.log( this.mileage);
+        super.trip(mileage);
+        console.log(this);
+        //throw new Error("not implemented");
     }
 }
 
