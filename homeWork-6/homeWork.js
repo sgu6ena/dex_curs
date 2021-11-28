@@ -54,15 +54,16 @@ export class Charger {
 // чтоб пробег всех автомобилей можно было получить без параметров.
 // Реализуйте функцию получения суммарного пробега всех автомобилей
 export class Car extends Vehicle {
-    trip (mileage) {
-        getTotalCarsMileage();
+    static allMileageCount = 0;
+    static allMileage(mileage = 0) {
+        return (this.allMileageCount += mileage);
+    }
+    trip(mileage) {
+        Car.allMileage(mileage);
         super.trip(mileage);
-    };
+    }
 }
 
 export function getTotalCarsMileage() {
-    let allMills = 0;
-    return  function (){
-        return allMills+=100;
-    }
+    return Car.allMileage();
 }
