@@ -30,3 +30,17 @@ async function fetchUsers (users=['sgu6ena'])  {
 }
 
 fetchUsers(users).then(console.log)
+
+
+function f(x) {
+    return new Promise(function (resolve, reject) {
+        try {
+            if (x>0)
+                resolve(x =>  x*x );
+            else
+                throw new Error('х должен быть больше нуля');
+        } catch (e) {
+            reject(e);
+        }
+    });
+}
