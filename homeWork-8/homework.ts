@@ -8,21 +8,35 @@ interface iStages {
     engineType: string;
 }
 
-interface iDrive {
-    stages?: iStages[];
+interface CarDrive {
     supportedEnvironments: string[];
-    power?: number;
-    torque?: number;
-    type?: string;
+    torque: number;
+    power: number;
+    type: string;
 }
 
-type VehicleType = {
+interface SpacecraftDrive {
+    supportedEnvironments: string[];
+    stages: iStages[];
+    power: number;
+}
+
+interface HelicopterDrive {
+    supportedEnvironments: string[];
+    totalPower: number;
+    engineCount: number;
+}
+
+type VehicleType<T> = {
     type: string;
     brand: string;
     model: string;
-    drive: iDrive;
+    drive: T;
 };
-export const vehicles: VehicleType[] = VehicleData;
+
+export const vehicles: VehicleType<
+    HelicopterDrive | SpacecraftDrive | CarDrive
+    >[] = VehicleData;
 
 // реализуйте класс "Транспортное средство" и его потомков
 // Ожидаемый вывод getTitle - "VAZ - 2105"
@@ -34,62 +48,66 @@ export const vehicles: VehicleType[] = VehicleData;
 //       количество двигателей.
 //   для автомобилей - "Power: {pwr}HP Torque: {Tq}Nm", с выводом соотв. значений
 //   для вертолётов - "Under secret"
-//  class Vehicle extends VehicleType={
-//   getTitle:() string
-//  }
 
-class Vehicle {
-    type: string;
-    brand: string;
-    model: string;
-    env: string[];
-    pwr?: number;
-    tq?: number;
-    stages?: iStages[];
-    constructor(vehicle: VehicleType) {
+abstract class Vehicle<T extends SpacecraftDrive | HelicopterDrive | CarDrive> {
+    readonly type: string;
+    readonly brand: string;
+    readonly model: string;
+    readonly drive: T;
+
+    constructor(vehicle: VehicleType<T>) {
         this.type = vehicle.type;
         this.brand = vehicle.brand;
         this.model = vehicle.model;
-        this.env = vehicle.drive.supportedEnvironments;
-        this.pwr = vehicle.drive.power;
-        this.tq = vehicle.drive.torque;
-        this.stages = vehicle.drive.stages;
+        this.drive = vehicle.drive;
     }
 
     getTitle(): string {
-        console.log(this);
-
         return `${this.brand} - ${this.model}`;
     }
+
     getInfo(): string {
-        if (this.type === "Helicopter") {
-            return `Under secret`;
-        } else {
-            const envInfo: string = `Supported environments: ${this.env.join(
-                ", "
-            )}. `;
-            switch (this.type) {
-                case "Car":
-                    return `${envInfo} Power: ${this.pwr}. HP Torque: ${this.tq}Nm.`;
-                case "Spacecraft":
-                    const cnt: number | undefined = this.stages
-                        ?.map((a) => a.engineCount)
-                        .reduce((total, current) => (total += current), 0);
-                    const calc: number | undefined = this.stages
-                        ?.map((a) => a.engineThrust)
-                        .reduce((total, current) => (total += current), 0);
-                    return `${envInfo} Total thrust: ${calc}kN Engine count: ${cnt}`;
-                default:
-                    return `${envInfo || "неизвестный тип"}`;
-            }
-        }
+        return `Supported environments: ${this.drive.supportedEnvironments.join(
+            ", "
+        )}`;
     }
 }
 
-// реализйте функцию конвертации полученнх данных в конечный тип для
-// последующего вывода данных о транспортном средстве
-
-export function vehicleFabric(vehicle: VehicleType): Vehicle | null {
-    return new Vehicle(vehicle);
+class Car extends Vehicle<CarDrive> {
+    pwr: number = this.drive.power;
+    tq: number = this.drive.torque;
+    getInfo(): string {
+        return `${super.getInfo()}. Power: ${this.pwr}. HP Torque: ${this.tq}Nm.`;
+    }
 }
 
+class Helicopter extends Vehicle<HelicopterDrive> {
+    getInfo(): string {
+        return `UNDER SECRET`;
+    }
+}
+
+class Spacecraft extends Vehicle<SpacecraftDrive> {
+    cnt: number  = this.drive.stages.reduce((total, current) => (total += current.engineCount), 0)
+    calc: number  = this.drive.stages.reduce((total, current) => (total += current.engineThrust), 0);
+    getInfo(): string {
+        return `${super.getInfo()}.Total thrust: ${this.calc}kN. Engine count: ${this.cnt}. `;
+    }
+}
+
+
+// реализуйте функцию конвертации полученнх данных в конечный тип для
+// последующего вывода данных о транспортном средстве
+
+export function vehicleFabric <T extends SpacecraftDrive | HelicopterDrive | CarDrive>(vehicle: VehicleType<T>): Car| Helicopter|Spacecraft | null {
+    switch (vehicle.type) {
+        case "Car":
+            return new Car(vehicle);
+        case "Helicopter":
+            return new Helicopter(vehicle);
+        case "Spacecraft":
+            return new Spacecraft(vehicle);
+        default:
+            return null;
+    }
+}
