@@ -1,0 +1,60 @@
+.layout {
+  font: 1em sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 50px 1fr 50px;
+}
+.header {
+  color: white;
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  grid-area: header;
+  background: crimson;
+}
+.main {
+  grid-area: main;
+  background: grey;
+}
+.aside {
+  padding: 15px;
+  grid-area: aside;
+  background: #fff;
+}
+.footer {
+  grid-area: footer;
+  background: darkcyan;
+}
+.todoCard {
+  background: #fff;
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px;
+}
+.todoCard:hover {
+  box-shadow: 0 0 2px yellow inset;
+  background: #f2aeba;
+}
+.delete_todo {
+  background: transparent;
+  padding: 5px 8px;
+  border: 1px solid crimson;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.delete_todo:hover {
+  background: crimson;
+  color: #fff;
+}
