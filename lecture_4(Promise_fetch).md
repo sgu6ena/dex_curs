@@ -68,7 +68,7 @@ ___
 async function feychUrl (url) {
     let response = await fetch(url, options); // завершается с заголовками ответа   
     let result = await response.json(); // читать тело ответа в формате JSON   
-    return redult;
+    return result;
  }
 ```
 
