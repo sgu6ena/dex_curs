@@ -1,0 +1,65 @@
+[
+  {
+    "id": 0,
+    "name": "1-й тур | Тинькофф РПЛ",
+    "date": "1638817200",
+    "place": "Екатеринбург Арена",
+    "commandFirst": {
+      "logo": "https://upload.wikimedia.org/wikipedia/ru/thumb/0/05/Logo_of_FC_Ural.png/534px-Logo_of_FC_Ural.png",
+      "name": "Урал",
+      "score": 1
+    },
+    "commandSecond": {
+      "logo": "https://upload.wikimedia.org/wikipedia/ru/thumb/f/ff/Sochi_logo.svg/279px-Sochi_logo.svg.png",
+      "name": "Сочи",
+      "score": 3
+    },
+    "coefficients": [
+      "2.35",
+      "5.64",
+      "1.22"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "1-й тур | Тинькофф РПЛ",
+    "date": "1639506000",
+    "place": "Открытие Банк Арена",
+    "commandFirst": {
+      "logo": "https://upload.wikimedia.org/wikipedia/ru/8/83/Spartak_logo_2013.png",
+      "name": "Спартак",
+      "score": null
+    },
+    "commandSecond": {
+      "logo": "https://upload.wikimedia.org/wikipedia/ru/c/c5/FC_Lokomotiv.png",
+      "name": "Локомотив",
+      "score": null
+    },
+    "coefficients": [
+      "2.35",
+      "5.64",
+      "1.22"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "1-й тур | Тинькофф РПЛ",
+    "date": "1640458800",
+    "place": "ВЭБАрена",
+    "commandFirst": {
+      "logo": "https://upload.wikimedia.org/wikipedia/ru/0/00/PFK_CSKA_2008.svg",
+      "name": "ЦСКА",
+      "score": null
+    },
+    "commandSecond": {
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/d/df/FC_Dynamo_Kyiv_logo.svg",
+      "name": "Динамо",
+      "score": null
+    },
+    "coefficients": [
+      "2.35",
+      "5.64",
+      "1.22"
+    ]
+  }
+]
