@@ -2,7 +2,7 @@
   {
     "id": 0,
     "name": "1-й тур | Тинькофф РПЛ",
-    "date": "1638817200",
+    "date": "1638810000",
     "place": "Екатеринбург Арена",
     "commandFirst": {
       "logo": "https://upload.wikimedia.org/wikipedia/ru/thumb/0/05/Logo_of_FC_Ural.png/534px-Logo_of_FC_Ural.png",
@@ -14,16 +14,12 @@
       "name": "Сочи",
       "score": 3
     },
-    "coefficients": [
-      "2.35",
-      "5.64",
-      "1.22"
-    ]
+    "coefficients": ["2.35", "5.64", "1.22"]
   },
   {
     "id": 1,
     "name": "1-й тур | Тинькофф РПЛ",
-    "date": "1639506000",
+    "date": "1639498800",
     "place": "Открытие Банк Арена",
     "commandFirst": {
       "logo": "https://upload.wikimedia.org/wikipedia/ru/8/83/Spartak_logo_2013.png",
@@ -35,11 +31,7 @@
       "name": "Локомотив",
       "score": null
     },
-    "coefficients": [
-      "2.35",
-      "5.64",
-      "1.22"
-    ]
+    "coefficients": ["2.35", "5.64", "1.22"]
   },
   {
     "id": 2,
@@ -56,10 +48,6 @@
       "name": "Динамо",
       "score": null
     },
-    "coefficients": [
-      "2.35",
-      "5.64",
-      "1.22"
-    ]
+    "coefficients": ["2.35", "5.64", "1.22"]
   }
 ]
