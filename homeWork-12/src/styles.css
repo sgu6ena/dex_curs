@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&family=Fira+Mono&family=JetBrains+Mono:wght@300;400;500&display=swap");
+body {
+  text-align: left;
+  background-color: black;
+  font-family: "JetBrains Mono", monospace;
+  color: yellowgreen;
+  font-weight: 300;
+}
+
+.input {
+  font: 1em "JetBrains Mono", monospace;
+  color: yellowgreen;
+  width: 50%;
+  background: transparent;
+  border: none;
+  padding: 0 3px;
+  caret-color: yellowgreen;
+}
+.input:focus {
+  outline: none;
+}
