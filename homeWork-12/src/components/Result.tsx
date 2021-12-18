@@ -1,4 +1,4 @@
-const Result = (props) => {
-  return <div> {props.text}</div>;
+const Result = ({ text }: { text: string }) => {
+  return <div> {text} </div>;
 };
 export default Result;
