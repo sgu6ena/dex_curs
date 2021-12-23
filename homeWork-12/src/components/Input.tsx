@@ -7,9 +7,9 @@ const Input = () => {
   let count: number = 0;
   const inputRef = useRef();
   //обновление пути
-  const Path = (): string => {
+  const Path = () => {
     const value = useSelector((state) => state.path);
-    return value.join("/") + " ~ ";
+    return <span>{value.join("/") + " ~ "}</span>;
   };
   //обновление команд
   const Сommands = (): string => {
@@ -64,16 +64,14 @@ const Input = () => {
       // если стрелка вниз - то команды листаются в конец
       case "ArrowDown":
         if (count > 0) {
-          inputRef.current.value = commands[commands.length - --count];
+          inputRef.current.value = commands[commands.length - --count] || "";
         }
     }
   };
 
   return (
     <div>
-      <span>
-        <Path />
-      </span>
+      <Path />
       <input
         ref={inputRef}
         type="text"
