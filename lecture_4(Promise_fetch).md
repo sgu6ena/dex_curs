@@ -65,7 +65,7 @@ ___
 
 Типичный запрос с помощью fetch состоит из двух операторов await:
 ```js
-async function feychUrl (url) {
+async function fetchUrl (url) {
     let response = await fetch(url, options); // завершается с заголовками ответа   
     let result = await response.json(); // читать тело ответа в формате JSON   
     return result;
